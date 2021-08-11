@@ -1,18 +1,22 @@
 :root {
-  color: black; /*reminder that color means font-color! */
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  height: 100%;
 }
 
 body {
-  background-color: rgb(1, 143, 141);
+  overflow: auto;
+  --body: #231E23;
+  --buttons: #39A6A3;
+  --buttons2: #BF1363;
+  --clear: #DEEEEA;
+  background-color: var(--clear);
   height: 100%;
 }
 main {
-  --body: rgb(33, 201, 201);
+  /* --body: rgb(33, 201, 201);
   --buttons: rgb(187, 238, 255);
-  --clear: white;
+  --clear: white; */
+  
   display: flex;
   align-items: center;
   justify-content: center;
@@ -28,51 +32,84 @@ main {
   justify-content: end;
   align-content: center;
   grid-column: 1 / 5;
-  border-radius: 0%;
+  border-radius: 10px;
   background-color: var(--clear);
-/* 
-  border-color: black;
-  border-width: 3px;
-  border-style: solid; */
+
   overflow: hidden;
   box-shadow: inset 0 0 0.3rem 0.1rem rgba(0, 0, 0, 0.6);
-  padding: 0.5rem;
+  padding: 0.3rem;
+  white-space: nowrap;
+  
 }
 
 #calculator {
   display: grid;
-  grid-template-columns: repeat(4, 100px);
-  grid-gap: 10px;
-  margin-top: 10rem;
-  border-radius: 8%;
+  grid-template-columns: repeat(4, 4.5rem);
+  grid-template-rows: repeat(5, 5rem);
+  grid-row-gap: 12px;
+  grid-column-gap: 10px;
+  margin-top: 5rem;
+  border-radius: 20px;
   background-color: var(--body);
   box-shadow: 0.3rem 0.5rem 0.2rem 0.2rem rgba(0, 0, 0, 0.4);
   padding: 1rem;
 }
 
-button {
+.number, .operator, #decimal, #delete, #clear, #equals {
   margin: 0;
   display: flex;
   align-items: center;
   justify-content: center;
   align-content: center;
-
-  --length: 5rem;
   background-color: var(--buttons);
-  width: var(--length);
+
+  --length: 5rem;  
   height: var(--length);
 
   border-color: black;
   border-width: 3px;
-  border-radius: 10%;
+  border-radius: 10px;
   border-style: none;
 
-  box-shadow: 0.1rem 0.1rem 0  0  rgba(0, 0, 0, 0.6);
-
-  font-size: 1.5rem;
+  box-shadow: 0.1rem 0.1rem 0  0;
+  /* rgba(0, 0, 0, 0.6); */
+  font-size: 1.6rem;
+  color: var(--body);
   transition: transform 0.2s;
 }
 
+.operator, #decimal, #delete, #clear {
+  background-color: var(--clear);
+}
+#equals {
+  background-color: var(--buttons2);
+  
+}
+
+
 button:hover {
-  transform: scale(1.1);
+  transform: scale(1.08);
+}
+
+button:active {
+  transform: scale(1);
+}
+
+#clear {
+  grid-column: 1 / 3;
+}
+
+#equals {
+  grid-column: 3 / 5;
+}
+
+#name-link, #name-link:active {
+  text-decoration: none;
+  margin-left: 5px;
+  padding: 0;
+  color: var(--buttons);
+}
+
+#name-link:hover {
+  border-bottom: 2px dotted;
 }
