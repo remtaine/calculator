@@ -66,10 +66,17 @@ for (let i = 0 ; i < BUTTONS.OPERATORS.length; i++) {
     let operatorInput = BUTTONS.OPERATORS[i].textContent;
     BUTTONS.OPERATORS[i].addEventListener('click', function() {
         if (!OPERATOR_SIGNS.includes(DISPLAYS.MAIN.textContent.slice(-3))) {
-            
-            DISPLAYS.MAIN.textContent += " " + operatorInput + " ";
-            equationCurrent.operators.push(operatorInput);
-            equationCurrent.numbers.push(equationCurrent.numberLast);
+            if (equationCurrent.numberLast === "0" && (["", "0", ERROR_MESSAGE].includes(DISPLAYS.MAIN.textContent))) {
+            // === "" || DISPLAYS.MAIN.textContent === "0" ||)) 
+                equationCurrent.operators.push(operatorInput);
+                equationCurrent.numbers.push("0");
+                DISPLAYS.MAIN.textContent = "0 " + operatorInput + " ";
+            }
+            else {
+                DISPLAYS.MAIN.textContent += " " + operatorInput + " ";
+                equationCurrent.operators.push(operatorInput);
+                equationCurrent.numbers.push(equationCurrent.numberLast);
+            }
             equationCurrent.numberLast = "0";
         }
     });
