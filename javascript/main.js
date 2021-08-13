@@ -100,20 +100,34 @@ BUTTONS.DECIMAL.addEventListener('click', function() {
 
 BUTTONS.DELETE.addEventListener('click', function() {
     console.log("before: " + DISPLAYS.MAIN.textContent);
-    console.log("symbol: " + DISPLAYS.MAIN.textContent.slice(-3));
+    console.log("numberLast #: " + equationCurrent.numberLast);
+    console.log("nums: " + equationCurrent.numbers);
+    console.log("operators: " + equationCurrent.operators);
+    console.log("-------------------");
+
     if (!OPERATOR_SIGNS.includes(DISPLAYS.MAIN.textContent.slice(-3))) {
         DISPLAYS.MAIN.textContent = DISPLAYS.MAIN.textContent.slice(0, -1);
         if (DISPLAYS.MAIN.textContent === '') {
             DISPLAYS.MAIN.textContent = '0';
         }
-        equationCurrent.numberLast = equationCurrent.numberLast.slice(0, -1);
+        equationCurrent.numberLast = String(equationCurrent.numberLast).slice(0, -1);
         if (equationCurrent.numberLast === '') {
             equationCurrent.numberLast = '0';
         }
     }
+    //if deleting an operation
+    else {
+        DISPLAYS.MAIN.textContent = DISPLAYS.MAIN.textContent.slice(0,-3);
+        equationCurrent.operators.pop();
+        equationCurrent.numberLast = equationCurrent.numbers.pop();
+    }
+
     console.log("after: " + DISPLAYS.MAIN.textContent);
+    console.log("numberLast #: " + equationCurrent.numberLast);
     console.log("nums: " + equationCurrent.numbers);
     console.log("operators: " + equationCurrent.operators);
+    console.log("          ");
+
 });
 
 BUTTONS.EQUALS.addEventListener('click', function() {
