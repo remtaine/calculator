@@ -5,9 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <meta property="og:title" content="Calculator">
-    <meta property="og:description" content="Calculator I made for The Odin Project">
+    <meta property="og:description" content="Project I made for The Odin Project">
     <meta property="og:image" content="images/calculator-social-media.png">
     <meta property="og:url" content="https://remtaine.github.io/calculator/">
+    <meta name="twitter:card" content="images/calculator-social-media.png">
+
+    <meta property="og:site_name" content="Calculator">
+    <meta name="twitter:image:alt" content="calculator made using HTML, CSS, and Javascript">
 
     <title>Calculator</title>
     <link rel="stylesheet" href="styles/style.css" />
@@ -21,8 +25,10 @@
 <body>
     <main>
         <div id="calculator">
-            <h2 id="screen">0</h2>
-
+            <div id="display">
+                <h2 id="display-side"></h2>
+                <h2 id="display-main">0</h2>
+            </div>
             <button class="number">7</button>
             <button class="number">8</button>
             <button class="number">9</button>
@@ -45,11 +51,9 @@
 
             <button id="clear">clear</button>
             <button id="equals">=</button>
-
-            
         </div>
     </main>
-    <footer style="display: flex; justify-content: center; margin: 0; padding: 50px 0 0 0;">
+    <footer>
         Made by <a href="https://github.com/remtaine" id="name-link">Ben</a>
     </footer>
     <script src="javascript/main.js" defer></script>
